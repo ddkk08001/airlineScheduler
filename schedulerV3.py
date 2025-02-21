@@ -1,13 +1,11 @@
 import os
-from datetime import datetime, timedelta
-import sys
 
 os.system("clear")
 
-routes = {"WAW-CDG-WAW", "WAW-FRA-WAW", "WAW-LHR-WAW", "WAW-BCN-WAW", "WAW-LIS-WAW", "WAW-VIE-WAW", "WAW-MUC-WAW", "WAW-VNL-WAW", "WAW-ATH-WAW"}
-demand = {"WAW-CDG-WAW": 100, "WAW-FRA-WAW": 90, "WAW-LHR-WAW": 110, "WAW-BCN-WAW": 10, "WAW-LIS-WAW": 100, "WAW-VIE-WAW": 100, "WAW-MUC-WAW": 100, "WAW-VNL-WAW": 100, "WAW-ATH-WAW": 100}
-time = {"WAW-CDG-WAW": 4.5, "WAW-FRA-WAW": 4, "WAW-LHR-WAW": 6, "WAW-BCN-WAW": 8, "WAW-LIS-WAW": 9, "WAW-VIE-WAW": 4, "WAW-MUC-WAW": 4, "WAW-VNL-WAW": 3, "WAW-ATH-WAW": 6}
-aircraft = {"1": 5, "2": 5, "3": 5, "4": 5}
+routes = {"WAW-CDG-WAW", "WAW-FRA-WAW", "WAW-LHR-WAW", "WAW-BCN-WAW", "WAW-LIS-WAW", "WAW-VIE-WAW", "WAW-MUC-WAW", "WAW-VNL-WAW", "WAW-ATH-WAW", "WAW-KRK-WAW"}
+demand = {"WAW-CDG-WAW": 100, "WAW-FRA-WAW": 90, "WAW-LHR-WAW": 110, "WAW-BCN-WAW": 10, "WAW-LIS-WAW": 100, "WAW-VIE-WAW": 100, "WAW-MUC-WAW": 100, "WAW-VNL-WAW": 100, "WAW-ATH-WAW": 100, "WAW-KRK-WAW": 200}
+time = {"WAW-CDG-WAW": 4.5, "WAW-FRA-WAW": 4, "WAW-LHR-WAW": 6, "WAW-BCN-WAW": 8, "WAW-LIS-WAW": 9, "WAW-VIE-WAW": 4, "WAW-MUC-WAW": 4, "WAW-VNL-WAW": 3, "WAW-ATH-WAW": 6, "WAW-KRK-WAW": 2}
+aircraft = {"1": 5, "2": 5, "3": 5, "4": 5, "5": 5, "6": 5, "7": 5, "8": 5, "9": 5, "10": 5}
 
 finalDemandOrder = []
 
@@ -53,7 +51,6 @@ def checkEarliestTime(duration):
             if minTime < earliestTime:
                 if minTime + duration*100 in timeslots:
                     earliestTime = minTime
-                    earliestAircraft = aircraftId
     if earliestTime == float('inf'):
         # print("No available timeslots")
         return None
